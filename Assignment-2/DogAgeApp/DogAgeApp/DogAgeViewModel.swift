@@ -22,6 +22,12 @@ class DogAgeViewModel: ObservableObject {
             showresult = false
             return
         }
+        guard age >= 0 else {
+            errorMessage = "Please enter a valid age for your dog"
+            showalert = true
+            showresult = false
+            return
+        }
         var result: Int
         result = Int(((log(age))*16 + 31))
         resultText = String(result)
